@@ -1,0 +1,157 @@
+.ou-direct-edit #de {
+	display: none;
+	top: 65px;
+	position: relative;
+	padding-right: 25px;
+	padding-top: 25px;
+}
+@media (min-width: 768px) {
+	.ou-direct-edit #de {
+		display: inline-block;
+	}
+}
+#main-content ol {
+	font-size: 1.125rem;
+}
+
+/* New css added for an additional template */
+.content-header-container .content-header, .inner.ou-custom-enrich .content-header {
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/_resources/img/enrich-breadcrumb-resize-2-min.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: auto;
+	padding-top: 10rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+@media (min-width: 768px) {
+	.content-header-container .content-header, .inner.ou-custom-enrich .content-header {
+		padding-top: 15rem;
+	}
+}
+
+.breadcrumb {
+	display:block;
+}
+
+.ou-heading {
+	font-style: normal;
+}
+
+.ou-nav-heading {
+	display: none;
+	padding-bottom: 1rem;
+/* padding-left: 1rem; */
+	border-bottom: 1px solid #dadada;
+/* 	font-size: 16px; */
+	margin-bottom: 0;
+}
+
+@media (min-width: 992px){
+	.ou-nav-heading {
+		display: block;
+	}
+}
+
+/* fix mobile side scroll issue */
+@media (max-width: 991px) {
+	.ou-small-class {
+		width: 100% !important;
+	}
+}
+
+
+/* Fix link font #48318 */
+.two-column-right p {
+	font-size: 1.125rem;
+}
+
+/* Fix link font #48311 */
+#main-content ul, #main-content ol {
+    font-size: 1rem;
+}
+/* for having a link inside of the cards #48387 */
+.main-card .card .card-title .ou-card-link, .right-sidebar .card .card-title .ou-card-link {
+	word-break: normal;
+	font-weight: 600;
+	margin-bottom: .5rem;
+	color: #000000;
+}
+
+.main-card .card .card-text, .right-sidebar .card .card-text {
+	font-size: 1rem;
+}
+
+.ou-card-link {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.438rem;
+    line-height: 1.75rem;
+    font-weight: bold;
+    font-style: normal;
+    color: #000000;
+}
+
+@media (min-width: 768px) {
+	.ou-card-link {
+		font-size: 1.563rem;
+		line-height: 1.75rem;
+	}
+}
+
+/* fix for responsive view on the homepage #48420 */
+@media (max-width: 767px) {
+	.home-page .cta-home .cta-message {
+		min-width: 233px;
+	}
+}
+
+/* the caption for the homepage slider #49070 */
+.home-center-mode-slider .slick-slide figcaption, .center-mode-slider .slick-slide figcaption {
+    margin: 0rem 0 1rem 0;
+    padding: 0rem;
+}
+@media (min-width: 992px) {
+	.home-center-mode-slider .slick-slide figcaption, .center-mode-slider .slick-slide figcaption {
+		padding: 0rem 1rem;
+	}
+}
+@media (min-width: 1200px) {
+	.home-center-mode-slider .slick-slide figcaption, .center-mode-slider .slick-slide figcaption {
+		padding: 0 2.5rem;
+	}
+}
+
+/* fix for quick links hover to not bold #48130 */
+.inner.top-level-page .quick-links li a:hover {
+	font-weight: normal;
+}
+
+/* fix for news posts #49461 */
+.home-page .news-flipster .card-title a {
+    color: #003478;
+    font-family: 'Unna', serif;
+    font-weight: bold;
+    font-style: normal;
+    text-align: left;
+    font-size: 1.25rem;
+    padding-top: 15px;
+}
+.home-page .card .card-title a {
+    font-family: 'Unna', serif;
+    font-size: 1.625rem;
+    line-height: 1.875rem;
+    font-weight: bold;
+    color: #046a38;
+    font-style: normal;
+}
+.home-page .card .card-title a:hover {
+	text-decoration: underline;
+}
+/* Added to resolve OU Search logo display issue */
+.ou-search-logo {
+	max-width: max-content;
+}
+

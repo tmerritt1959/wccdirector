@@ -1,0 +1,1 @@
+fetch('https://www.reuters.com/world/middle-east/israel-raids-gazas-al-shifa-hospital-2023-11-15/') .then(response => response.text())

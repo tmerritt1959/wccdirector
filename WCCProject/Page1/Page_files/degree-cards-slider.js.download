@@ -1,0 +1,65 @@
+(function($) {
+    jQuery(document).ready(function($){
+
+        $('.degree-cards-slider-container').slick({
+            autoplay: false,
+            autoplaySpeed: 3000,
+            speed: 800,
+            mobileFirst: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            lazyLoad: 'ondemand',
+            responsive: [
+              {
+                breakpoint: 576,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  autoplay: false
+                }
+              },				
+              {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  autoplay: false
+                }
+              },
+              {
+                breakpoint: 992,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                  autoplay: false
+                }
+              },				
+              {
+                breakpoint: 1200,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                  autoplay: false
+                }
+              }
+            ],
+            pauseOnFocus: true,
+            dots: true,
+            pauseOnDotsHover: false,
+            cssEase: 'linear',
+            draggable: false,
+            prevArrow: $('#degree-left-arrow'),
+            nextArrow: $('#degree-right-arrow'),
+            appendDots: '#degree-nav',
+            customPaging: function(slider, i) {
+                return '<div class="slider-icons" aria-hidden="true"></div>';
+            }
+          });
+
+
+}); //document.ready
+	
+	
+    
+})(jQuery);

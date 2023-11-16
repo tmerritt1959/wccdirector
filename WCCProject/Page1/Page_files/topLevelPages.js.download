@@ -1,0 +1,39 @@
+/*
+*** TOP LEVEL PAGES ***
+*/
+
+function topLevelPageSubnav() {
+    var viewportWidth = $(window).width();
+    if (viewportWidth < 992) {
+        $("#subnav-aside").prependTo("#main-content");
+        $("#supplementary-content-section").remove();
+//         console.log('sidebar');
+    } else {
+        $("#subnav-aside").remove();
+         console.log('no sidebar');
+    }
+}
+
+// function changeBoostrapClass() {
+//     var quickLinksOne = document.querySelector('#two-column-quick-links-one');
+//     var viewportWidth = $(window).width();
+//     if (viewportWidth < 992) {
+//         if (viewportWidth < 992) {
+//             quickLinksOne.classList.remove('col-lg-3');
+//             // quickLinksOne.classList.add('col-lg-12')[0];
+//             console.log('remove class');
+//         } else {
+//             // quickLinksOne.classList.remove('col-lg-12'[0]);
+//             quickLinksOne.classList.add('col-lg-3');
+//             console.log('add class');
+//         }
+//     }
+// }
+
+
+$(document).ready(function(){
+    $(window).on( 'load',  topLevelPageSubnav);
+    $(window).on( 'resize',  topLevelPageSubnav);
+});
+
+// https://stackoverflow.com/questions/9828831/jquery-on-window-resize

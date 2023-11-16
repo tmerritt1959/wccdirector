@@ -1,0 +1,34 @@
+/*
+** CENTER MODE SLIDER ***
+*/
+
+(function($) {
+    jQuery(document).ready(function($){
+
+      $('.center-mode-slider').slick({
+        dots: true,
+        arrows: true,
+        infinite: true,
+        centerMode: true,
+        adaptiveHeight: false,
+        centerPadding: '30px',
+        slidesToShow: 3,
+        speed: 500,
+        prevArrow: $('#center-left-arrow'),
+        nextArrow: $('#center-right-arrow'),
+        appendDots: '#center-nav',
+        customPaging: function(slider, i) {
+          return '<div class="slider-icons" aria-hidden="true"></div>';
+      },
+      responsive: [{
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1
+            }
+      
+          }]
+      });
+
+    }); //document.ready
+    
+  })(jQuery);

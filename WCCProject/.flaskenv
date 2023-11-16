@@ -1,0 +1,1 @@
+export FLASK_APP=first_flask_application.py

@@ -1,0 +1,228 @@
+/*
+*** MAIN MENU ***
+*/
+
+// Main Nav Toggle
+$('header .navbar-toggler').on('click', function(){
+    var $icon = $(this).children('span');
+
+    if ($icon.attr('class') == 'fa fa-close navbar-toggler-icon') {
+        $icon.attr('class', 'fa fa-bars navbar-toggler-icon')
+    } else {
+        $icon.attr('class', 'fa fa-close navbar-toggler-icon')
+    }
+});
+
+
+// Gateway nav
+// enquire.register('screen and (min-width: 992px)', {
+//     match: function() {
+//         (function($) {
+//             // $(".login-nav-container").appendTo("#main-nav ul.navbar-nav");
+//             // $( "#main-nav-form-container" ).addClass( "row" );
+//             // $( "#main-nav-form-column" ).addClass( "col-12" );
+//             $("#gateway-mobile").appendTo("#main-nav");
+
+//             })(jQuery);
+//         },
+//     umatch: function() {
+//         (function($) {
+//             $("#gateway-mobile").prependTo("#gateway-nav-row");
+//         })(jQuery);
+//     }
+// })
+// .register('screen and (max-width: 992px)', {
+//     match: function() {
+//         (function($) {
+//             $("#gateway-mobile").prependTo("#gateway-nav-row");
+//         })(jQuery);
+//     },
+//     umatch: function() {
+//         (function($) {
+//             $("#gateway-mobile").appendTo("#main-nav");
+//         })(jQuery);
+//     }
+// });
+
+// // Login Button
+// enquire.register('screen and (min-width: 992px)', {
+//     match: function() {
+//         (function($) {
+//             $(".login-nav-container").appendTo("#main-nav ul.navbar-nav");
+//             $( "#main-nav-form-container" ).addClass( "row" );
+//             $( "#main-nav-form-column" ).addClass( "col-12" );
+//             $("#main-nav-form-container").appendTo("#gateway-nav .navbar-nav-container");
+
+//             })(jQuery);
+//         },
+//     umatch: function() {
+//         (function($) {
+//             $(".login-nav-container").prependTo("#main-nav ul.navbar-nav");
+//             $( "#main-nav-form-container" ).removeClass( "row" );
+//             $( "#main-nav-form-column" ).removeClass( "col-12" );
+//             $("#main-nav-form-container").prependTo("#main-nav ul.navbar-nav");
+//         })(jQuery);
+//     }
+// })
+// .register('screen and (max-width: 992px)', {
+//     match: function() {
+//         (function($) {
+//             $(".login-nav-container").prependTo("#main-nav ul.navbar-nav");
+//             $( "#main-nav-form-container" ).removeClass( "row" );
+//             $( "#main-nav-form-column" ).removeClass( "col-12" );
+//             $("#main-nav-form-container").prependTo("#main-nav ul.navbar-nav");
+//         })(jQuery);
+//     },
+//     umatch: function() {
+//         (function($) {
+//             $(".login-nav-container").appendTo("#main-nav ul.navbar-nav");
+//             $( "#main-nav-form-container" ).addClass( "row" );
+//             $( "#main-nav-form-column" ).addClass( "col-12" );
+//             $("#main-nav-form-container").appendTo("#gateway-nav .navbar-nav-container");
+//         })(jQuery);
+//     }
+// });
+
+// // Cart Button
+// enquire.register('screen and (min-width: 992px)', {
+//     match: function() {
+//         (function($) {
+//             $(".cart-nav-container").appendTo("#main-nav ul.navbar-nav");
+//             $( ".cart-nav-container" ).insertAfter( ".login-nav-container" );
+//             })(jQuery);
+//         },
+//     umatch: function() {
+//         (function($) {
+//             $(".cart-nav-container").prependTo("#main-nav ul.navbar-nav");
+//             $( ".cart-nav-container" ).insertAfter( ".login-nav-container" );
+//         })(jQuery);
+//     }
+// })
+// .register('screen and (max-width: 992px)', {
+//     match: function() {
+//         (function($) {
+//             $(".cart-nav-container").prependTo("#main-nav ul.navbar-nav");
+//             $( ".cart-nav-container" ).insertAfter( ".login-nav-container" );
+//         })(jQuery);
+//     },
+//     umatch: function() {
+//         (function($) {
+//             $(".cart-nav-container").appendTo("#main-nav ul.navbar-nav");
+//             $( ".cart-nav-container" ).insertAfter( ".login-nav-container" );
+//         })(jQuery);
+//     }
+// });
+
+
+/*
+*** GLOBAL ***
+*/
+
+$(document).ready(function () {
+$("#tnav-btn").click(function(){
+$('body').toggleClass('menu-open');
+	//$("#header").toggleClass("oy-scroll");
+	//$('#header').css('max-height', $(window).height());
+});	
+	
+$( "#login-nav-item-mobile" ).click(function() {
+  $( ".login-dropdown-content" ).toggle();
+});	
+
+$( "#login-nav-item-desktop" ).click(function() {
+    $( ".login-dropdown-content" ).toggle();
+});		
+	
+var fixed = document.getElementById('header');
+
+
+  'use strict';
+  
+   var c, currentScrollTop = 0,
+       navbar = $('#header');
+
+   $(window).scroll(function () {
+      var a = $(window).scrollTop();
+      var b = navbar.height();
+     
+      currentScrollTop = a;
+     
+      if (c < currentScrollTop && a > b + b) {
+        navbar.addClass("navbar-scroll-custom");
+      } else if (c > currentScrollTop && !(a <= b)) {
+        navbar.removeClass("navbar-scroll-custom");
+      }
+      c = currentScrollTop;
+  });
+  
+});
+
+
+(function($) {
+        jQuery(document).ready(function($){
+            // subnavButton();
+            enquire.register('screen and (min-width: 992px)', {
+                match: function() {
+                    (function($) {
+                        $("#quick-section-one-right").prependTo(".quick-section-one-right-column");
+                        $("#quick-section-two-right").prependTo(".quick-section-two-right-column");
+                        $("#quick-section-three-right").prependTo(".quick-section-three-right-column");
+                    })(jQuery);
+                },
+                umatch: function() {
+                    (function($) {
+                        $("#quick-section-one-right").prependTo("#two-column-quick-section-one .mobile-only");
+                        $("#quick-section-two-right").prependTo("#two-column-quick-section-two .mobile-only");
+                        $("#quick-section-three-right").prependTo("#two-column-quick-links-three .mobile-only");
+                    })(jQuery);
+                }
+            })
+            .register('screen and (max-width: 992px)', {
+                match: function() {
+                    (function($) {
+                        $("#quick-section-one-right").prependTo("#two-column-quick-section-one .mobile-only");
+                        $("#quick-section-two-right").prependTo("#two-column-quick-section-two .mobile-only");
+                        $("#quick-section-three-right").prependTo("#two-column-quick-links-three .mobile-only");
+                    })(jQuery);
+                },
+                umatch: function() {
+                    (function($) {
+                        $("#quick-section-one-right").prependTo(".quick-section-one-right-column");
+                        $("#quick-section-two-right").prependTo(".quick-section-two-right-column");
+                        $("#quick-section-three-right").prependTo(".quick-section-three-right-column");
+                    })(jQuery);
+                }
+            });
+    }); // doc.ready
+    
+})(jQuery);
+
+// function subnavButton() {
+//     // var liItem = document.getElementsByClassName('top-level-menu-item')[0];
+//     // if ($('.top-level-menu-item').hasClass('.menu-item-has-children')[2]) {
+//     //     $('.list-toggle').css('background', 'red');
+//     //     console.log('red');
+//     // } else if ($('.top-level-menu-item').not('.menu-item-has-children')[2]) {
+//     //     $('.list-toggle').css('background', 'blue');
+//     //     console.log('blue');
+//     // }
+//     // $('.top-level-menu-item').not()
+// }
+
+
+document.querySelectorAll('.generic-webfiles').forEach(el => {
+  const dataFiles = el.getAttribute('data-files');
+  const baseUrl = el.getAttribute('data-baseUrl');
+
+  if (dataFiles && baseUrl) {
+    const url = baseUrl + '/global/scripts/api/webfiles-json/webfile/' + dataFiles;
+    fetch(url).then(response => response.json()).then(
+      data => {
+        let table = '<table>'; table += '<thead><tr><th>File Name</th><th>Last Updated</th></tr></thead>'; table += '<tbody>'; table += 
+			data.files.map(file => { let row = '<tr>'; row += '<td>' + '<a href="' + file.url + '" target="_blank">' + file.title + '</a></td>'; 
+		//row += '<td>' + file.file_size + '</td>'; 
+		row += '<td>' + file.date + '</td>'; row += '</tr>'; return row; }).join(''); table += '</tbody><table>'; el.innerHTML = table;
+      }).catch(() => { el.innerHTML = '<span class="error">Sorry, could not load files.</span>'; });
+  }
+});
+

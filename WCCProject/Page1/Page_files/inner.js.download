@@ -1,0 +1,389 @@
+/*
+*** STANDARD INNER ***
+*/
+
+(function($) {
+    $('[data-toggle="tooltip"]').tooltip();
+})(jQuery);
+
+(function($) {
+    jQuery(document).ready(function($){
+        subNavToggle();
+        vpmDropDown();
+
+        $('.accordion-container').on('hidden.bs.collapse', toggleIcon);
+        $('.accordion-container').on('shown.bs.collapse', toggleIcon);
+        // $( "#tabs" ).tabs();
+        // $( ".jq-accordion" ).accordion({
+        // collapsible: true
+        // });
+        $('#main-tabs-component a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        });
+        $('#sidebar-tabs-component a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        });
+
+        // $('.slick-modal').slickLightbox();
+        $('select.select-multiple').multipleSelect();
+        $('[data-spy="scroll"]').each(function () {
+            var $spy = $(this).scrollspy('refresh')
+        });
+
+
+            // $('.stats-component').unslick();
+            function statSlider() {
+                $('.stats-component').not('.slick-initialized').slick({
+                    autoplay: false,
+                    autoplaySpeed: 3000,
+                    speed:800,
+                    mobileFirst: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    adaptiveHeight: true,
+                    pauseOnFocus: true,
+                    dots: false,
+                    pauseOnDotsHover: false,
+                    cssEase: 'linear',
+                    draggable: true,
+                    prevArrow: '<span class="prev fa fa-angle-left"></span>',
+                    nextArrow: '<span class="next fa fa-angle-right"></span>',
+                    responsive: [
+                        {
+                        breakpoint: 992,
+                        settings: 'unslick'
+                        }
+                    ],
+                });
+            }
+
+
+        statSlider();
+        $(window).on( 'resize', statSlider);
+    }); // doc.ready
+    
+})(jQuery);
+
+enquire.register('screen and (min-width: 992px)', {
+    match: function() {
+        (function($) {
+            $(".supplementary-content").appendTo(".left-subnav");
+        })(jQuery);
+    },
+    umatch: function() {
+        (function($) {
+            $(".supplementary-content").appendTo("#main-content");
+        })(jQuery);
+    }
+})
+.register('screen and (max-width: 992px)', {
+    match: function() {
+        (function($) {
+            $(".supplementary-content").appendTo("#main-content");
+        })(jQuery);
+    },
+    umatch: function() {
+        (function($) {
+            $(".supplementary-content").appendTo(".left-subnav");
+        })(jQuery);
+    }
+});
+
+function subNavToggle() {
+    $('#subnav-toggle').click(function(e) {
+        e.preventDefault();
+        $('body').toggleClass('subnav-open');
+    });
+
+    $('.list-toggle').click(function(e) {
+        e.preventDefault();
+        $(this).parent().toggleClass('list-item-open');
+    });
+}   
+
+function toggleIcon(e) {
+    $(e.target)
+        .prev('.panel-heading')
+        .find(".more-less")
+        .toggleClass('glyphicon-plus glyphicon-minus')
+
+        .prev('.card-header')
+        .find(".more-less")
+        .toggleClass('fa-plus fa-minus');
+}
+
+function tabsInit() {
+
+    $('#tabs-nav li:first-child').addClass('active');
+    $('.content').hide();
+    $('.content:first').show();
+
+    $('#tabs-nav li').click(function(){
+      $('#tabs-nav li').removeClass('active');
+      $(this).addClass('active');
+      $('.content').hide();
+      
+      var activeTab = $(this).find('a').attr('href');
+      $(activeTab).fadeIn();
+      return false;
+    });
+}
+
+function vpmDropDown() {
+    $('.dropdown-menu').on('keypress click',function(e){
+        if (e.which === 13 || e.type === 'click') {
+            e.preventDefault();
+            $(this).parents('.dropdown-container').toggleClass('open');
+        };
+        if (e.type === 'click') {
+            $(this).blur();
+        };
+    });
+}
+
+/*
+*** GALLERY JS ***
+*/
+
+(function($) {
+    jQuery(document).ready(function($){
+
+      $('.gallery-component').slick({
+        autoplay: false,
+        autoplaySpeed: 3000,
+        speed:800,
+        mobileFirst: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveHeight: true,
+        lazyLoad: 'ondemand',
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              autoplay: false
+            }
+          },
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              autoplay: false
+            }
+          }
+        ],
+        pauseOnFocus: true,
+        dots: true,
+        pauseOnDotsHover: false,
+        cssEase: 'linear',
+        draggable: false,
+        prevArrow:  $('#caption-right-arrow'),
+        nextArrow:  $('#caption-right-arrow'),
+        appendDots:  '#caption-nav', 
+        customPaging: function(slider, i) {
+            return '<div class="slider-icons" aria-hidden="true"></div>';
+        }
+      });
+      
+      $('.gallery-component-no-caption').slick({
+        autoplay: false,
+        autoplaySpeed: 3000,
+        speed:800,
+        mobileFirst: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        lazyLoad: 'ondemand',
+        responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false
+          }
+        },
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false
+          }
+        }
+      ],
+        pauseOnFocus: true,
+        dots: true,
+        pauseOnDotsHover: false,
+        cssEase: 'linear',
+        draggable: false,
+        prevArrow: $('#nocaption-right-arrow'),
+        nextArrow: $('#nocaption-right-arrow'),
+		appendDots: '#nocaption-nav',  
+        customPaging: function(slider, i) {
+            return '<div class="slider-icons" aria-hidden="true"></div>';
+        }
+      });
+
+      // createArrows();
+      // moveArrows();
+      // // $(window).on('reload', createArrows);
+      // $(window).on('reload', moveArrows);
+      // var resizeTimer;
+      
+      // $(window).on('resize', function(e) {
+      
+      //   clearTimeout(resizeTimer);
+      //   resizeTimer = setTimeout(moveArrows, 100);
+      
+      // });
+
+      // function createArrows() {
+      //   var prevArrowLi = document.createElement("LI");
+      //   prevArrowLi.classList.add("prev-li");
+      //   document.querySelector(".slick-dots").prepend(prevArrowLi);
+
+      //   var nextArrowLi = document.createElement("LI");
+      //   nextArrowLi.classList.add("next-li");
+      //   document.querySelector(".slick-dots").appendChild(nextArrowLi);
+      // }
+
+      // function moveArrows() {
+      //   // var prev = document.querySelector(".slider-nav .prev");
+      //   // document.querySelector(".slider-nav .slick-dots").prepend(prev);
+      //   // var next = document.querySelector(".slider-nav .next");
+      //   // document.querySelector(".slider-nav .slick-dots").appendChild(next);
+
+      //   // var verticalCaptionPrev = document.querySelector(".vertical-caption-slider-nav .prev");
+      //   // document.querySelector(".vertical-caption-slider-nav .slick-dots").prepend(verticalCaptionPrev);
+      //   // var verticalCaptionNext = document.querySelector(".vertical-caption-slider-nav .next");
+      //   // document.querySelector(".vertical-caption-slider-nav .slick-dots").appendChild(verticalCaptionNext);
+
+      //   var centerModePrev = document.querySelector(".center-mode-slider-nav .prev");
+      //   document.querySelector(".center-mode-slider-nav .slick-dots").prepend(centerModePrev);
+      //   var centerModeNext = document.querySelector(".center-mode-slider-nav .next");
+      //   document.querySelector(".center-mode-slider-nav .slick-dots").appendChild(centerModeNext);
+
+      // }
+    }); //document.ready
+    
+  })(jQuery);
+/*
+*** PAGINATION JS ***
+*/
+
+function responsivePagination() {
+    var paginationNav = document.getElementsByClassName('pagination')[0];
+    var mobilePagination = document.createElement("LI");
+
+    // paginationNav.replaceChild(mobilePagination, paginationNav.childNodes[0]);
+    document.getElementsByClassName('pagination')[0].appendChild(mobilePagination);
+//     console.log(paginationNav);
+}
+
+// responsivePagination();
+/*
+*** textTrim ***
+*/
+
+$(document).ready(function() {
+    /*
+    ** This function might need to be cleaned up. Also if you think of a better way to do this feel 
+    ** free to change it and then I will take a look at the changes to understand them
+    */
+    function textTrimToggle() {
+        var showChar = 200;
+        var ellipsesText = "...";
+        var readMoreText = "Read More";
+        $('.addReadMoreLink').each(function() {
+            var content = $(this).html();
+
+            if(content.length > showChar) {
+
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar-0, content.length - showChar);
+
+                var html = c + '<span class="read-more-ellipses">' + ellipsesText + '</span><div class="more-content"><p tab-index="1">' + h + '</p>&nbsp;<label for="readMoreButton" class="sr-only">Expand Hidden Text of the Previous Paragraph</label><button id="readMoreButton" tab-index="0" class="morelink" aria-expanded="false">' + '<span aria-hidden="true">' + readMoreText + '</span></button></div>';
+
+                $(this).html(html);
+            }
+
+	});
+
+	$(".morelink").click(function(){
+        var $toggleAriaExpandOnce = $('#readMoreButton');
+        $toggleAriaExpandOnce.attr("aria-expanded", "true");
+        $(".more-content p").css("display", "inline");
+        $(".more-content p").triggerHandler( "focus" );
+        $(".read-more-ellipses").hide();
+        $(".morelink").addClass("sr-only");
+		return false;
+    });
+}
+
+// Tried this function to undo the trimming on desktop, needs work
+    function undoTrim() {
+        $moreElipses = $(".read-more-ellipses");
+        $moreContent = $(".more-content");
+        $moreLink = $(".morelink");
+        $moreElipses.detach();
+        $moreLink.detach();
+        // $moreContent.detach();
+//         console.log($moreLink);
+    }
+
+    var $paragraphs = $('#top-two-column p');
+    // tried to add breakpoint if statements with jQuery method but was having issues getting it to fire on resize so I switched to using Enquire.js for the time being
+    //   $(window).on('load resize',function(){
+    
+    //     if (window.innerWidth < 992){
+    //         $paragraphs.addClass("addReadMoreLink");
+    //         console.log($paragraphs);
+    //     } else {
+
+    //         console.log('small screen');
+    //     }
+    //     if($paragraphs.hasClass("addReadMoreLink")) {
+    //         textTrimToggle();
+    //     } else {
+    //         undoTrim();
+    //     }
+    // });
+
+    // Changed to use Enquire.js instead of jQuery to see if that would help with resizing issue
+    // See - http://wicky.nillia.ms/enquire.js/ for more info
+    enquire.register('screen and (min-width: 992px)', {
+        match: function() {
+            (function($) {
+                $paragraphs.removeClass("addReadMoreLink");
+                undoTrim();
+                })(jQuery);
+            },
+        umatch: function() {
+            (function($) {
+                $paragraphs.addClass("addReadMoreLink");
+                textTrimToggle();
+            })(jQuery);
+        }
+    })
+    .register('screen and (max-width: 992px)', {
+        match: function() {
+            (function($) {
+                $paragraphs.addClass("addReadMoreLink");
+                textTrimToggle();
+            })(jQuery);
+        },
+        umatch: function() {
+            (function($) {
+                $paragraphs.removeClass("addReadMoreLink");
+                undoTrim();
+            })(jQuery);
+        }
+    });
+	
+	
+});

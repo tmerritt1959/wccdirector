@@ -25,7 +25,7 @@
         <hr>
         
         <section class="cooked">
-          <label for="doneness">How do you want your patty cooked</label>
+          <label for="doneness">How do you want your patty cooked?</label>
           <br>
           <span>Rare</span>
           <input type="range" name="doneness" id="doneness" value="3" min="1" max="5">
@@ -36,22 +36,27 @@
         <section class="toppings">
           <span>What toppings would you like?</span>
           <br>
+          <div class="choices">
           <input type="checkbox" name="topping" id="lettuce" value="lettuce">
           <label for="lettuce">Lettuce</label>
           <input type="checkbox" name="topping" id="tomato" value="tomato">
           <label for="tomato">Tomato</label>
           <input type="checkbox" name="topping" id="onion" value="onion">
           <label for="onion">Onion</label>
+          </div>
         </section>
         <hr>
         
         <section class="cheesy">
           <span>Would you like to add cheese?</span>
           <br>
+          <div class="choices">
+
           <input type="radio" name="cheese" id="yes" value="yes">
           <label for="yes">Yes</label>
           <input type="radio" name="cheese" id="no" value="yes">
           <label for="no">No</label>
+          </div>
         </section>
         <hr>
        
